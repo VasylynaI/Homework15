@@ -9,20 +9,20 @@ class TestDynamicProperties:
 
     def setup_method(self):
         self.driver: WebDriver = self.driver
-        self.page_dynamic_button = PageDynamic(self.driver).open()
+        self.page = PageDynamic(self.driver).open()
 
-    def test_enabled_button_v1(self):
-        button = self.page_dynamic_button.enable_button_v1()
+    def test_disabled_enabled_button_v1(self):
+        button = self.page.button_disabled_enabled_v1()
         assert button is True
 
-    def test_enabled_button_v2(self):
-        button = self.page_dynamic_button.enable_button_v2()
+    def test_disabled_enabled_button_v2(self):
+        button = self.page.button_disabled_enabled_v2()
         assert button
 
-    def test_color_button(self):
-        button = self.page_dynamic_button.color_button()
+    def test_color_changed_button(self):
+        button = self.page.button_color_changing()
         assert button.is_displayed()
 
-    def test_visible_button(self):
-        button = self.page_dynamic_button.visible_button()
+    def test_appeared_button(self):
+        button = self.page.button_appeared()
         assert button.is_displayed()
