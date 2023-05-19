@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.wait import WebDriverWait
 
 
-def appeared_element(driver: WebDriver, locator: tuple, timeout: int, poll: float | int = 0.2) -> WebElement:
+def get_appeared_element(driver: WebDriver, locator: tuple, timeout: int, poll: float | int = 0.2) -> WebElement:
     """
         :param driver: WebDriver
         :param timeout: Max time to wait for element to be enabled
@@ -26,7 +26,7 @@ def appeared_element(driver: WebDriver, locator: tuple, timeout: int, poll: floa
     raise NoSuchElementException(f"Element not found: {locator}")
 
 
-def enabled_element(driver: WebDriver, locator: tuple, timeout: int) -> WebElement:
+def get_enabled_element_v1(driver: WebDriver, locator: tuple, timeout: int) -> WebElement:
     """
        :param driver: WebDriver
        :param locator: tuple with By. Example: (By.XPATH, "//div[@id]")
@@ -38,7 +38,7 @@ def enabled_element(driver: WebDriver, locator: tuple, timeout: int) -> WebEleme
     return got_element
 
 
-def wait_element_to_be_enabled(element: WebElement, timeout: int) -> bool:
+def get_enabled_element_v2(element: WebElement, timeout: int) -> bool:
     """
     :param element: WebElement from function caller
     :param timeout: Max time to wait for element to be enabled
